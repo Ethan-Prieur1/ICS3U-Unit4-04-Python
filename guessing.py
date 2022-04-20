@@ -4,21 +4,27 @@
 # Created on March 2022
 # This is a program that makes the user guess a number
 
-import constants
+import random
 
 
 def main():
     # This Function Runs the Program
 
     # Input
-    Number = int(input("Enter The Number You're Guessing (0-9):"))
+    number_as_string = input("Enter The Number You're Guessing (0-9):")
+    Hidden_Number = random.randint(0, 9)
 
     # Process & Output
-    if Number != constants.HIDDEN_NUMBER:
-        print("You Were Incorrect! You Fool! You Blundered! :(")
-    if Number == constants.HIDDEN_NUMBER:
-        print("You Were Correct! Hooray! You're Lucky! :)")
-    print("\nDone")
+    try:
+        number_as_int = int(number_as_string)
+        if number_as_int == Hidden_Number:
+            print("You Were Correct! Hooray! You're Lucky!")
+        else:
+            print("You Were Incorrect! You Fool! You Blundered!")
+    except Exception:
+        print("Ok wise guy why don’t you enter a real number next time.")
+    finally:
+        print("\nDone.")
 
 
 if __name__ == "__main__":
